@@ -33,6 +33,9 @@ var MdButtonComponent = Ember.Component.extend(LayoutRules, RipplesMixin, {
 
     click() {
         this.sendAction('action', this.get('param'));
+        if ( this.get('bubbles') === false ) {
+          e.stopPropagation();
+        }
     }
 
 });
